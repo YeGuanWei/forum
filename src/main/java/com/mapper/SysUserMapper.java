@@ -1,0 +1,16 @@
+package com.mapper;
+
+import com.model.entity.SysUser;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+/**
+ * <p>
+ * 用户表 Mapper 接口
+ * </p>
+ *
+ * @author YeGuanWei
+ * @since 2021-12-29
+ */
+public interface SysUserMapper extends BaseMapper<SysUser> {
+
+}

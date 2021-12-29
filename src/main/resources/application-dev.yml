@@ -3,11 +3,18 @@ server:
 
 spring:
   datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    druid:
-      username: root
-      password: root
-      url: jdbc:mysql://localhost:3306/cloud_desk?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true&nullCatalogMeansCurrent=true
+    dynamic:
+      primary: master #设置默认的数据源或者数据源组,默认值即为master
+      strict: false #严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源
+      datasource:
+        master:
+          url: jdbc:mysql://localhost:3306/forum?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true&nullCatalogMeansCurrent=true
+          username: root
+          password: root
+        slave_1:
+          url: jdbc:mysql://localhost:3306/forum?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true&nullCatalogMeansCurrent=true
+          username: root
+          password: root
   redis:
     # redis数据库索引(默认为0)，我们使用索引为1的数据库，避免和其他数据库冲突
     database: 1
@@ -21,9 +28,9 @@ spring:
     timeout: 20000
 
 mybatis-plus:
-  mapper-locations: classpath:/com/hesc/xml/*Mapper.xml
-  type-aliases-package: com.hesc.*.model.entity;
-  type-enums-package: com.hesc.*.model.enums;
+  mapper-locations: classpath:com/mapper/xml/*Mapper.xml
+  type-aliases-package: com.model.entity;
+  type-enums-package: com.model.enums;
   configuration:
     default-enum-type-handler: com.baomidou.mybatisplus.extension.handlers.MybatisEnumTypeHandler
 
@@ -31,5 +38,7 @@ logging:
   level:
     com.hesc: debug
 
-swagger:
-  enable: true
+springfox:
+  documentation:
+    swagger-ui:
+      enabled: true
