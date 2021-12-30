@@ -2,6 +2,9 @@ package com.model.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
+
+import com.model.enums.DelFlagEnum;
+import com.model.enums.SexEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -47,7 +50,7 @@ public class SysUser implements Serializable {
     private Integer type;
 
     @ApiModelProperty(value = "性别")
-    private Integer sex;
+    private SexEnum sex;
 
     @ApiModelProperty(value = "手机")
     private String phone;
@@ -68,7 +71,7 @@ public class SysUser implements Serializable {
     private Long updateTime;
 
     @ApiModelProperty(value = "删除标记")
-    private Integer delFlag;
+    private DelFlagEnum delFlag;
 
 
     public static final String ID = "id";
