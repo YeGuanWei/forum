@@ -26,6 +26,7 @@
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <log4j.version>2.17.0</log4j.version>
         <easypoi.version>4.4.0</easypoi.version>
+        <fastjson.version>1.2.78</fastjson.version>
     </properties>
 
     <dependencies>
@@ -91,6 +92,13 @@
             <version>${redis.version}</version>
         </dependency>
 
+        <!-- 阿里fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+
         <!-- swagger3 -->
         <dependency>
             <groupId>io.springfox</groupId>
@@ -138,6 +146,20 @@
             <groupId>cn.afterturn</groupId>
             <artifactId>easypoi-annotation</artifactId>
             <version>${easypoi.version}</version>
+        </dependency>
+
+        <!--http连接 -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient-cache</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpmime</artifactId>
         </dependency>
 
     </dependencies>
