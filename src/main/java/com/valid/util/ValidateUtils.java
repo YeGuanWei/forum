@@ -1,6 +1,6 @@
 package com.valid.util;
 
-import com.hesc.cloud_core.utils.StringUtil;
+import com.util.StringUtil;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;

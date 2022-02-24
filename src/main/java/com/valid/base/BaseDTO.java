@@ -1,6 +1,6 @@
 package com.valid.base;
 
-import com.hesc.cloud_core.utils.StringUtil;
+import com.util.StringUtil;
 import com.valid.result.code.CommonError;
 import com.valid.result.code.IErrorCode;
 import com.valid.util.ValidateUtils;
