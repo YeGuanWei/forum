@@ -1,5 +1,7 @@
 package com.config;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -15,7 +17,6 @@ import springfox.documentation.spring.web.plugins.Docket;
  */
 @Configuration
 @EnableOpenApi
-@EnableWebMvc
 public class SwaggerConfig {
 
     /**
@@ -29,8 +30,10 @@ public class SwaggerConfig {
                 // .enable(true) // 开启关闭功能已经放到配置文件中
                 .groupName("Forum")
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.controller"))
-                .paths(PathSelectors.ant("/controller/**"))
+                // .apis(RequestHandlerSelectors.basePackage("com.controller"))
+                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
+                // .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
+                .paths(PathSelectors.ant("controller/**"))
                 .build();
     }
 

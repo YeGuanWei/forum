@@ -12,7 +12,7 @@ spring:
           username: root
           password: root
         slave_1:
-          url: jdbc:mysql://localhost:3306/forum?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true&nullCatalogMeansCurrent=true
+          url: jdbc:mysql://localhost:3306/cloud_desk?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true&nullCatalogMeansCurrent=true
           username: root
           password: root
   redis:
@@ -36,7 +36,7 @@ mybatis-plus:
 
 logging:
   level:
-    com.hesc: debug
+    com: debug
 
 springfox:
   documentation:
