@@ -1,7 +1,10 @@
 package com.controller;
 
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.model.entity.CloudOrg;
 import com.model.entity.SysUser;
+import com.service.ICloudOrgService;
 import com.service.ISysUserService;
 import com.valid.result.response.Response;
 import io.swagger.annotations.ApiOperation;
@@ -21,17 +24,18 @@ import java.util.List;
  * @since 2021-12-29
  */
 @RestController
-@RequestMapping("/forum/user")
-public class UserController {
+@RequestMapping("/forum/org")
+public class OrgController {
 
     @Resource
-    private ISysUserService userService;
+    private ICloudOrgService orgService;
 
     @ApiOperation(value = "list", notes = "list")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public Response<List<SysUser>> list() {
-        QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
-        List<SysUser> list = userService.list(queryWrapper);
+    @DS("slave_1")
+    public Response<List<CloudOrg>> list() {
+        QueryWrapper<CloudOrg> queryWrapper = new QueryWrapper<>();
+        List<CloudOrg> list = orgService.list(queryWrapper);
         return Response.success(list);
     }
 

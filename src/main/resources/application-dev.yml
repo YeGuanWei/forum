@@ -38,7 +38,5 @@ logging:
   level:
     com: debug
 
-springfox:
-  documentation:
-    swagger-ui:
-      enabled: true
+swagger:
+  enable: true
