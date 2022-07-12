@@ -32,7 +32,6 @@ public class OrgController {
 
     @ApiOperation(value = "list", notes = "list")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    @DS("slave_1")
     public Response<List<CloudOrg>> list() {
         QueryWrapper<CloudOrg> queryWrapper = new QueryWrapper<>();
         List<CloudOrg> list = orgService.list(queryWrapper);
